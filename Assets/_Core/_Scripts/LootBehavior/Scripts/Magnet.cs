@@ -18,7 +18,6 @@ public class Magnet : MonoBehaviour
         foreach (var hit in hits)
         {
             var a = hit.GetComponent<IAttractable>();
-
             a?.AttractTo(transform.position, _attractSpeed);
         }
     }
