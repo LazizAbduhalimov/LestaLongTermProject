@@ -71,6 +71,8 @@ public class CarController : MonoBehaviour
         {
             // Останавливаем поворот когда нет ввода или стоим
             carRigidbody.angularVelocity = Vector3.Lerp(carRigidbody.angularVelocity, Vector3.zero, 5f * Time.deltaTime);
+
+
         }
         
         // Движение через velocity
