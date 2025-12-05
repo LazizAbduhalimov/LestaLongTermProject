@@ -27,8 +27,6 @@ public class ChaseBehaviour : MonoBehaviour, IEnemyBehaviour
 
     public void Start()
     {
-
-
         if (rb == null) rb = GetComponent<Rigidbody>();
         if (_target == null) _target = GameObject.FindWithTag("Player").transform;
         if (_dropPoolData == null) _dropPoolData = GameObject.FindWithTag("PlasmaContainer").GetComponent<PoolContainer>();
@@ -76,7 +74,7 @@ public class ChaseBehaviour : MonoBehaviour, IEnemyBehaviour
     private void OnDeath()
     {
         var drop = _dropPoolData.Pool.GetFreeElement();
-        Instantiate(drop, transform.position, Quaternion.identity);
+        drop.transform.position = transform.position;
 
         gameObject.SetActive(false);
     }
