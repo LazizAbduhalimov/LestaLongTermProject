@@ -63,5 +63,13 @@ namespace PoolSystem.Alternative
 
             throw new Exception($"There is no free element of type <{typeof(T)}> in pool");
         }
+
+        public T GetFreeElement(Vector3 position, Quaternion rotation, bool activeInHierarchy = true)
+        {
+            var element = GetFreeElement(false);
+            element.transform.SetPositionAndRotation(position, rotation);
+            element.gameObject.SetActive(activeInHierarchy);
+            return element;
+        }
     }
 }

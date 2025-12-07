@@ -12,7 +12,7 @@ public class AutoAimMissile : MissileBase
 
         if (Target != null)
         {
-            var toTarget = (Target.position - transform.position).normalized;
+            var toTarget = (Target.position - transform.position).WithY(0f).normalized;
             var desired = Quaternion.LookRotation(toTarget, Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, desired, TurnRate * Time.deltaTime);
         }

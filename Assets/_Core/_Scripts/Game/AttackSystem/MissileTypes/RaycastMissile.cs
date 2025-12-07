@@ -30,6 +30,7 @@ public class RaycastMissile : MissileBase
 
     private void OnHit(RaycastHit hit)
     {
+        Debug.Log("Hit " + hit.collider.gameObject.name);
         if (HitEffect != null)
         {
             Instantiate(HitEffect, hit.point, Quaternion.LookRotation(hit.normal));
