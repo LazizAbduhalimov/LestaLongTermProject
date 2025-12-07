@@ -20,6 +20,6 @@ public class DropObject : MonoBehaviour, IDrop
     public void OnPickedUp()
     {
         //какая-то логика при подборе
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }
