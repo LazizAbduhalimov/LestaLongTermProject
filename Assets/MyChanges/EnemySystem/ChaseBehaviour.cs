@@ -7,6 +7,7 @@ public interface IEnemyBehaviour
     public void Tick();
     public void TickFixedUpdate();
 
+    public void OnHit(GameObject agressor);
 }
 
 public class ChaseBehaviour : MonoBehaviour, IEnemyBehaviour
@@ -78,12 +79,8 @@ public class ChaseBehaviour : MonoBehaviour, IEnemyBehaviour
 
         gameObject.SetActive(false);
     }
-
-    private void OnTriggerEnter(Collider other)
+    public void OnHit(GameObject agressor)
     {
-        if (other.CompareTag("HitZone"))
-        {
-            OnDeath();
-        }
+        OnDeath();
     }
 }
