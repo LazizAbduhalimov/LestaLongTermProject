@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PatternedTrailMissile : MissileBase
@@ -22,22 +21,14 @@ public class PatternedTrailMissile : MissileBase
     protected override void Update()
     {
         base.Update();
-
         var prevPos = transform.position;
-
-        // Move forward relative to the initial orientation
         var forwardStep = _initialForward * Speed * Time.deltaTime;
-
-        // Sinusoidal offset perpendicular to the initial forward
         _phase += Frequency * Time.deltaTime;
         var lateral = _initialRight * (Mathf.Sin(_phase) * Amplitude);
-
-        // Apply movement
         var newPos = prevPos + forwardStep + lateral;
         transform.position = newPos;
-
-        // Orient to face the actual movement direction (current velocity)
         var moveDir = (newPos - prevPos);
+
         if (moveDir.sqrMagnitude > 1e-6f)
         {
             transform.rotation = Quaternion.LookRotation(moveDir.normalized, Vector3.up);

@@ -12,6 +12,7 @@ public class EnemySpawner : MonoBehaviour
     public static EnemySpawner Instance;
 
     private ISpawnStrategy _strategy;
+    
 
     private void Awake()
     {
