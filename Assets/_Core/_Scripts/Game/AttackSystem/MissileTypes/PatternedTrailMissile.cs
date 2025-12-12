@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class PatternedTrailMissile : MissileBase
 {
     [Header("Trail Pattern")]
@@ -21,19 +22,12 @@ public class PatternedTrailMissile : MissileBase
     {
         base.OnEnable();
         _phase = 0f;
+        _initialForward = transform.forward;
+        _initialRight = transform.right;
     }
 
     protected void FixedUpdate()
     {
-        if (_rb == null) return;
-
-        // Обновляем направление каждый кадр для корректной работы после респауна
-        if (_phase == 0f)
-        {
-            _initialForward = transform.forward;
-            _initialRight = transform.right;
-        }
-
         var prevPos = _rb.position;
         var forwardStep = _initialForward * Speed * Time.fixedDeltaTime;
         _phase += Frequency * Time.fixedDeltaTime;
@@ -41,7 +35,6 @@ public class PatternedTrailMissile : MissileBase
         var newPos = prevPos + forwardStep + lateral;
         _rb.MovePosition(newPos);
         var moveDir = newPos - prevPos;
-
         if (moveDir.sqrMagnitude > 0.01f)
         {
             transform.rotation = Quaternion.LookRotation(moveDir.normalized, Vector3.up);

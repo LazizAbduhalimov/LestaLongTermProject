@@ -7,13 +7,13 @@ namespace PoolSystem.Alternative
     {
         public float LifeTime = 2f;
 
-        private void OnEnable()
+        protected virtual void OnEnable()
         {
             if (LifeTime > 0)
                 StartCoroutine(nameof(LifeCoroutine));
         }
 
-        private void OnDisable()
+        protected virtual void OnDisable()
         {
             if (LifeTime > 0)
                 StopCoroutine(nameof(LifeCoroutine));

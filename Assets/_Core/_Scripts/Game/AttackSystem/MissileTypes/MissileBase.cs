@@ -19,8 +19,9 @@ public abstract class MissileBase : PoolObject
         LifeTime = lifeTime;
     }
 
-    protected virtual void OnEnable()
+    protected override void OnEnable()
     {
+        base.OnEnable();
         StartCoroutine(ClearTrailNextFrame());
     }
 
@@ -33,10 +34,5 @@ public abstract class MissileBase : PoolObject
             yield return null;
             _trailRenderer.Clear();
         }
-    }
-
-    public virtual void OnDisable()
-    {
-        transform.rotation = Quaternion.identity;
     }
 }

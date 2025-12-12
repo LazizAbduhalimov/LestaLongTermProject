@@ -273,9 +273,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8c7c6efd50f8f84e873ac63db3dddef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MissileColisionProvider
-  HitLayers:
-    serializedVersion: 2
-    m_Bits: 256
 --- !u!54 &104626276061164241
 Rigidbody:
   m_ObjectHideFlags: 0

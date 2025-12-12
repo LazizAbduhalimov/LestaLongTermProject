@@ -15,8 +15,6 @@ public class AutoAimMissile : MissileBase
 
     protected void FixedUpdate()
     {
-        if (_rb == null) return;
-
         if (Target != null)
         {
             var toTarget = (Target.position - transform.position).WithY(0f).normalized;
@@ -25,6 +23,7 @@ public class AutoAimMissile : MissileBase
         }
 
         var nextPos = _rb.position + transform.forward * Speed * Time.fixedDeltaTime;
+        Debug.Log(nextPos);
         _rb.MovePosition(nextPos);
     }
 }

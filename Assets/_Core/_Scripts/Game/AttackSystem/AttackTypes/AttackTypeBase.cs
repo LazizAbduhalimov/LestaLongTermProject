@@ -4,14 +4,17 @@ using UnityEngine;
 public abstract class AttackTypeBase : IAttack
 {
     public Transform Owner;
-    public Transform Target;
     public float AttackRate;
+    
+    protected Transform Target;
     protected float PassedTime;
     protected PoolService PoolService;
+    protected EnemiesNearby EnemiesNearby;
 
-    public virtual void Init(PoolService poolService)
+    public virtual void Init(PoolService poolService, EnemiesNearby enemiesNearby)
     {
         PoolService = poolService;
+        EnemiesNearby = enemiesNearby;
     }
 
     public virtual void Update()
@@ -19,6 +22,8 @@ public abstract class AttackTypeBase : IAttack
         PassedTime += Time.deltaTime;
         if (PassedTime >= AttackRate)
         {
+            Target = EnemiesNearby.GetNearestEnemy(Owner.position);
+            if (Target == null) return;
             Attack();
             PassedTime = 0;
         }
