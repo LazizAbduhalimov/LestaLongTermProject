@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: -5730471456554889999}
   - component: {fileID: 104626276061164241}
   - component: {fileID: 2227426467175969798}
+  - component: {fileID: -258597278505450096}
   m_Layer: 10
   m_Name: AutoAimMissile
   m_TagString: Untagged
@@ -257,7 +258,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 457b775a6210da8458db8a741f4d863b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AutoAimMissile
-  LifeTime: 0
   Speed: 15
   Target: {fileID: 0}
   TurnRatePerSecond: 180
@@ -321,3 +321,16 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.3
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-258597278505450096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5691877600271403712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a0d3e55b3841c046a9427285f200bf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Helpers.AutoDeactivator
+  LifeTime: 5

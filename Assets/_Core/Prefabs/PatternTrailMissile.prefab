@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -6448044247979200940}
   - component: {fileID: 4492438642187572464}
   - component: {fileID: 6507477749857543935}
+  - component: {fileID: -4378996135340960925}
   m_Layer: 10
   m_Name: PatternTrailMissile
   m_TagString: Untagged
@@ -49,7 +50,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a273f728eb95c11458f0f5b68db04a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PatternedTrailMissile
-  LifeTime: 5
   Speed: 15
   Amplitude: 0.1
   Frequency: 10
@@ -232,6 +232,19 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.2
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-4378996135340960925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4882761698450227914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a0d3e55b3841c046a9427285f200bf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Helpers.AutoDeactivator
+  LifeTime: 5
 --- !u!1 &6309859223550684579
 GameObject:
   m_ObjectHideFlags: 0

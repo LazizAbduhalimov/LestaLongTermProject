@@ -1,8 +1,7 @@
 using System.Collections;
-using PoolSystem.Alternative;
 using UnityEngine;
 
-public abstract class MissileBase : PoolObject
+public abstract class MissileBase : MonoBehaviour
 {
     public float Speed = 10f;
 
@@ -16,12 +15,10 @@ public abstract class MissileBase : PoolObject
     public virtual void Init(float speed, float lifeTime = 5f)
     {
         Speed = speed;
-        LifeTime = lifeTime;
     }
 
-    protected override void OnEnable()
+    protected virtual void OnEnable()
     {
-        base.OnEnable();
         StartCoroutine(ClearTrailNextFrame());
     }
 

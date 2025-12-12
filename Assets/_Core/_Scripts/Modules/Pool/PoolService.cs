@@ -15,21 +15,21 @@ namespace PoolSystem.Alternative
             _containersHolder = new GameObject(containerName).transform;
         }
 
-        public PoolMono<T> GetPool<T>(T poolObject) where T : PoolObject
+        public PoolMono<T> GetPool<T>(T poolObject) where T : MonoBehaviour
         {
             if (!_pools.TryGetValue(typeof(T), out var pool)) return null;
             var typedPool = pool as List<PoolMono<T>>;
             return typedPool?.Find(p => p.Prefab == poolObject);
         }
 
-        public bool HasPool<T>(T poolObject) where T : PoolObject
+        public bool HasPool<T>(T poolObject) where T : MonoBehaviour
         {
             if (!_pools.TryGetValue(typeof(T), out var pool)) return false;
             var typedPool = pool as List<PoolMono<T>>;
             return typedPool?.Any(poolMono => poolMono.Prefab == poolObject) ?? false;
         }
 
-        public PoolMono<T> RegisterPool<T>(T prefab, int count, Transform container = null, bool autoExpand = true) where T : PoolObject
+        public PoolMono<T> RegisterPool<T>(T prefab, int count, Transform container = null, bool autoExpand = true) where T : MonoBehaviour
         {
             if (prefab == null)
                 throw new Exception("Prefab for pool cannot be null");
@@ -49,7 +49,7 @@ namespace PoolSystem.Alternative
             return pool;
         }
 
-        public PoolMono<T> GetOrRegisterPool<T>(T prefab, int count, Transform container = null, bool autoExpand = true) where T : PoolObject
+        public PoolMono<T> GetOrRegisterPool<T>(T prefab, int count, Transform container = null, bool autoExpand = true) where T : MonoBehaviour
         {
             return HasPool(prefab) ? GetPool(prefab) : RegisterPool(prefab, count, container, autoExpand);
         }

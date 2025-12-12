@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace PoolSystem.Alternative
+namespace Game.Helpers
 {
-    public class PoolObject : MonoBehaviour
+    public class AutoDeactivator : MonoBehaviour
     {
         public float LifeTime = 2f;
 
