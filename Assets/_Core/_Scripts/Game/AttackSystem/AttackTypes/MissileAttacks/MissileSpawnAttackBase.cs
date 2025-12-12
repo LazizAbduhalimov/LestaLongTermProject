@@ -7,7 +7,7 @@ public class MissileSpawnAttackBase<T> : AttackTypeBase where T : MissileBase
     public float MissileSpeed = 15f;
     protected PoolMono<T> MissilesPool;
 
-    public override void Init(PoolService poolService, EnemiesNearby enemiesNearby)
+    public override void Init(PoolService poolService, EnemiesNearbyFinder enemiesNearby)
     {
         base.Init(poolService, enemiesNearby);
         MissilesPool = PoolService.GetOrRegisterPool(MissilePrefab, 10);

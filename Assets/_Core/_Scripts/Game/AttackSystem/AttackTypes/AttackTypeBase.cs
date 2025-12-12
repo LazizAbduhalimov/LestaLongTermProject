@@ -9,9 +9,9 @@ public abstract class AttackTypeBase : IAttack
     protected Transform Target;
     protected float PassedTime;
     protected PoolService PoolService;
-    protected EnemiesNearby EnemiesNearby;
+    protected EnemiesNearbyFinder EnemiesNearby;
 
-    public virtual void Init(PoolService poolService, EnemiesNearby enemiesNearby)
+    public virtual void Init(PoolService poolService, EnemiesNearbyFinder enemiesNearby)
     {
         PoolService = poolService;
         EnemiesNearby = enemiesNearby;
