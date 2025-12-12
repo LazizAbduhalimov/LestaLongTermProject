@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a0d3e55b3841c046a9427285f200bf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Pools::PoolSystem.Alternative.PoolObject
+  LifeTime: 0
 --- !u!54 &5889634500385100278
 Rigidbody:
   m_ObjectHideFlags: 0

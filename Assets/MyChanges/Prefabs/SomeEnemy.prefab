@@ -138,7 +138,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19e27828d2bd92d44bd7e5c68e38dc6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBrain
-  _dropPoolData: {fileID: 0}
 --- !u!114 &1574768916711472986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,6 +156,7 @@ MonoBehaviour:
   _damageZone: 5
   _zoneCalmdown: 3
   _canAtack: 1
+  _dropPoolData: {fileID: 0}
 --- !u!54 &1030177154916612407
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -196,6 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a0d3e55b3841c046a9427285f200bf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Pools::PoolSystem.Alternative.PoolObject
+  LifeTime: 0
 --- !u!1 &3160197281277103522
 GameObject:
   m_ObjectHideFlags: 0
