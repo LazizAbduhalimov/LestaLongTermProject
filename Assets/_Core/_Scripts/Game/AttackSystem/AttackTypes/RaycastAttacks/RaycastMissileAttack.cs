@@ -22,7 +22,7 @@ public class RaycastMissileAttack : AttackTypeBase
 
         foreach (var hit in hits)
         {
-            Debug.Log(hit.transform.name);
+            Debug.Log("Ray hit: " + hit.transform.name);
         }
 
         if (RayLine != null)

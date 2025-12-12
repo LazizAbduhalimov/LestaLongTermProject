@@ -3,6 +3,7 @@ using UnityEngine;
 public class PatternedTrailMissile : MissileBase
 {
     [Header("Trail Pattern")]
+    private Rigidbody _rb;
     public float Amplitude = 0.5f;
     public float Frequency = 4f;
 
@@ -10,26 +11,38 @@ public class PatternedTrailMissile : MissileBase
     private Vector3 _initialForward;
     private Vector3 _initialRight;
 
-    public override void OnEnable()
+    protected override void Awake()
     {
-        base.OnEnable();
-        // Cache initial basis vectors to keep movement relative to the start orientation
-        _initialForward = transform.forward;
-        _initialRight = transform.right;
+        base.Awake();
+        _rb = GetComponent<Rigidbody>();
     }
 
-    protected override void Update()
+    protected override void OnEnable()
     {
-        base.Update();
-        var prevPos = transform.position;
-        var forwardStep = _initialForward * Speed * Time.deltaTime;
-        _phase += Frequency * Time.deltaTime;
+        base.OnEnable();
+        _phase = 0f;
+    }
+
+    protected void FixedUpdate()
+    {
+        if (_rb == null) return;
+
+        // Обновляем направление каждый кадр для корректной работы после респауна
+        if (_phase == 0f)
+        {
+            _initialForward = transform.forward;
+            _initialRight = transform.right;
+        }
+
+        var prevPos = _rb.position;
+        var forwardStep = _initialForward * Speed * Time.fixedDeltaTime;
+        _phase += Frequency * Time.fixedDeltaTime;
         var lateral = _initialRight * (Mathf.Sin(_phase) * Amplitude);
         var newPos = prevPos + forwardStep + lateral;
-        transform.position = newPos;
-        var moveDir = (newPos - prevPos);
+        _rb.MovePosition(newPos);
+        var moveDir = newPos - prevPos;
 
-        if (moveDir.sqrMagnitude > 1e-6f)
+        if (moveDir.sqrMagnitude > 0.01f)
         {
             transform.rotation = Quaternion.LookRotation(moveDir.normalized, Vector3.up);
         }

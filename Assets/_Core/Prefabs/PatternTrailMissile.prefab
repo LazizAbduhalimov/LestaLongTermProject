@@ -11,7 +11,10 @@ GameObject:
   - component: {fileID: 2475396086108274054}
   - component: {fileID: 6744057543760194032}
   - component: {fileID: 3515421369682775694}
-  m_Layer: 0
+  - component: {fileID: -6448044247979200940}
+  - component: {fileID: 4492438642187572464}
+  - component: {fileID: 6507477749857543935}
+  m_Layer: 10
   m_Name: PatternTrailMissile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,8 +49,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a273f728eb95c11458f0f5b68db04a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PatternedTrailMissile
-  Speed: 15
   LifeTime: 0
+  Speed: 15
   Amplitude: 0.01
   Frequency: 10
 --- !u!96 &3515421369682775694
@@ -169,6 +172,69 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!114 &-6448044247979200940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4882761698450227914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8c7c6efd50f8f84e873ac63db3dddef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MissileColisionProvider
+  HitLayers:
+    serializedVersion: 2
+    m_Bits: 256
+--- !u!54 &4492438642187572464
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4882761698450227914}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
+--- !u!135 &6507477749857543935
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4882761698450227914}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6309859223550684579
 GameObject:
   m_ObjectHideFlags: 0
@@ -180,7 +246,7 @@ GameObject:
   - component: {fileID: 1769573084422816505}
   - component: {fileID: 7111033784911955598}
   - component: {fileID: 4742376378204014201}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bullet00
   m_TagString: Untagged
   m_Icon: {fileID: 0}

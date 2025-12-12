@@ -1,22 +1,30 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class AutoAimMissile : MissileBase
 {
-    [Header("Auto Aim")]
     public Transform Target;
-    public float TurnRate = 180f; // degrees per second
+    public float TurnRatePerSecond = 180f;
+    private Rigidbody _rb;
 
-    protected override void Update()
+    protected override void Awake()
     {
-        base.Update();
+        base.Awake();
+        _rb = GetComponent<Rigidbody>();
+    }
+
+    protected void FixedUpdate()
+    {
+        if (_rb == null) return;
 
         if (Target != null)
         {
             var toTarget = (Target.position - transform.position).WithY(0f).normalized;
             var desired = Quaternion.LookRotation(toTarget, Vector3.up);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, desired, TurnRate * Time.deltaTime);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, desired, TurnRatePerSecond * Time.fixedDeltaTime);
         }
 
-        transform.position += transform.forward * Speed * Time.deltaTime;
+        var nextPos = _rb.position + transform.forward * Speed * Time.fixedDeltaTime;
+        _rb.MovePosition(nextPos);
     }
 }

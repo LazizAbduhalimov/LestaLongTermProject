@@ -29,10 +29,8 @@ public class LightningAttack : AttackTypeBase
 
         for (int i = 0; i < MaxBounces && currentTarget != null; i++)
         {
-            // наносим урон текущей цели
             ApplyDamage(currentTarget);
 
-            // рисуем молнию
             if (LightningLine != null)
             {
                 LightningLine.positionCount = 2;
@@ -40,25 +38,20 @@ public class LightningAttack : AttackTypeBase
                 LightningLine.SetPosition(1, currentTarget.position.AddY(1f));
             }
 
-            // ждём время отображения
             yield return new WaitForSeconds(LightningDuration);
 
-            // скрываем линию
             if (LightningLine != null)
             {
                 LightningLine.positionCount = 0;
             }
 
-            // отмечаем, что уже били эту цель
             hitTargets.Add(currentTarget);
 
-            // ищем следующую цель вокруг текущей
             var nextTarget = FindNextTarget(currentTarget, hitTargets);
 
             if (nextTarget == null)
                 yield break;
 
-            // ждём интервал между скачками
             yield return new WaitForSeconds(ChainInterval);
 
             currentSource = currentTarget;
@@ -79,7 +72,6 @@ public class LightningAttack : AttackTypeBase
             if (alreadyHit.Contains(t))
                 continue;
 
-            // можешь тут фильтровать по компоненту врага
             // var enemy = t.GetComponentInParent<Enemy>();
             // if (enemy == null) continue;
 
@@ -96,7 +88,7 @@ public class LightningAttack : AttackTypeBase
 
     private void ApplyDamage(Transform target)
     {
-        // Тут должен быть твой код нанесения урона цели
+        // Тут должен быть код нанесения урона цели
         Debug.Log($"Lightning hit {target.name} for {DamagePerHit} damage.");
     }
 }

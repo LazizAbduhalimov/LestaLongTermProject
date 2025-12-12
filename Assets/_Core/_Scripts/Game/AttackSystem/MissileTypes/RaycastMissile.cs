@@ -8,10 +8,8 @@ public class RaycastMissile : MissileBase
 
     public GameObject HitEffect;
 
-    protected override void Update()
+    protected void Update()
     {
-        base.Update();
-
         var stepDist = Speed * Time.deltaTime;
         var rayDist = Mathf.Max(stepDist * MaxDistancePerStepMultiplier, stepDist);
         var start = transform.position;
