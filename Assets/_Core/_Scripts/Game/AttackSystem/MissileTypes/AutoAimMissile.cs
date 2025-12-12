@@ -15,15 +15,20 @@ public class AutoAimMissile : MissileBase
 
     protected void FixedUpdate()
     {
+        if (_rb == null) return;
+
         if (Target != null)
         {
-            var toTarget = (Target.position - transform.position).WithY(0f).normalized;
-            var desired = Quaternion.LookRotation(toTarget, Vector3.up);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, desired, TurnRatePerSecond * Time.fixedDeltaTime);
+            var toTarget = (Target.position - _rb.position).WithY(0f);
+            if (toTarget.sqrMagnitude > 0.001f)
+            {
+                var desired = Quaternion.LookRotation(toTarget.normalized, Vector3.up);
+                var newRotation = Quaternion.RotateTowards(_rb.rotation, desired, TurnRatePerSecond * Time.fixedDeltaTime);
+                _rb.MoveRotation(newRotation);
+            }
         }
 
-        var nextPos = _rb.position + transform.forward * Speed * Time.fixedDeltaTime;
-        Debug.Log(nextPos);
+        var nextPos = _rb.position + _rb.rotation * Vector3.forward * Speed * Time.fixedDeltaTime;
         _rb.MovePosition(nextPos);
     }
 }
