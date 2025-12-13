@@ -52,7 +52,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PatternedTrailMissile
   Speed: 15
   Amplitude: 0.1
-  Frequency: 10
+  NoiseScale: 2
+  NoiseSpeed: 1
 --- !u!96 &3515421369682775694
 TrailRenderer:
   serializedVersion: 3
@@ -132,8 +133,8 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.7660377, g: 0.7660377, b: 0.7660377, a: 1}
-      key1: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 0.78431374}
+      key0: {r: 0.6901961, g: 0.06815228, b: 0, a: 1}
+      key1: {r: 1, g: 0.34059948, b: 0, a: 0.78431374}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
