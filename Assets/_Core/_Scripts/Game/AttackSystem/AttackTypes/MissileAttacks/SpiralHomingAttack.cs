@@ -21,7 +21,7 @@ public class SpiralHomingAttack : MissileSpawnAttackBase<SpiralHomingMissile>, I
         Vector3 spawnPosition = Owner.position.AddY(1f);
         
         // Начальная ротация - смотрит вверх с небольшим наклоном вперед
-        Quaternion spawnRotation = Quaternion.Euler(45f, Owner.eulerAngles.y, 0f);
+        Quaternion spawnRotation = Quaternion.Euler(-45f, Owner.eulerAngles.y, 0f);
         
         var missile = MissilesPool.GetFreeElement(spawnPosition, spawnRotation, false);
         

@@ -8,8 +8,8 @@ public class Attacker: MonoBehaviour
 {
     public float EnemyDetectionRange = 30f;
     [Space(15f)]
-    [SerializeReference] public List<IAttack> AttackType;
     [SerializeField] private LayerMask _enemyLayerMask;
+    [SerializeReference] public List<IAttack> AttackType;
     private EnemiesNearbyFinder _enemiesNearby;
  
     public void Start()

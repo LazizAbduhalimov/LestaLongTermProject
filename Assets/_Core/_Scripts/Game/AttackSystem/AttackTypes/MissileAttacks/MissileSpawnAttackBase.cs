@@ -38,6 +38,5 @@ public class MissileSpawnAttackBase<T> : AttackTypeBase where T : MissileBase
         else if (LayerMask.LayerToName(ownerLayer) == "Enemy")
             missile.layer = LayerMask.NameToLayer("Enemy Missile");
         
-        Debug.Log(LayerMask.LayerToName(missile.layer));
     }
 }

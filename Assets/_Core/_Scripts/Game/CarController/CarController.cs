@@ -14,22 +14,43 @@ public class CarController : MonoBehaviour
     [Header("Physics Settings")]
     public float dragCoefficient = 3f;
     public float centerOfMassY = -0.5f;
+
+    [Header("View")]
+    public Transform[] Wheels;
+    public float maxWheelTurnAngle = 35f;
+    public float wheelRotationSpeed = 5f;
     
     private Rigidbody carRigidbody;
     private float motorInput;
     private float steerInput;
     private bool isBoostPressed;
+    private float currentWheelAngle;
+    private Quaternion[] initialWheelRotations;
     
     void Start()
     {
         carRigidbody = GetComponent<Rigidbody>();
         carRigidbody.centerOfMass = new Vector3(0, centerOfMassY, 0);
+        
+        // Сохраняем начальные ротации колес
+        if (Wheels != null && Wheels.Length > 0)
+        {
+            initialWheelRotations = new Quaternion[Wheels.Length];
+            for (int i = 0; i < Wheels.Length; i++)
+            {
+                if (Wheels[i] != null)
+                {
+                    initialWheelRotations[i] = Wheels[i].localRotation;
+                }
+            }
+        }
     }
     
     void Update()
     {
         GetInput();
         HandleMovement();
+        RotateWheels();
     }
     
     void FixedUpdate()
@@ -116,6 +137,28 @@ public class CarController : MonoBehaviour
             // Обычное сопротивление воздуха при движении
             Vector3 dragForce = -horizontalVelocity.normalized * horizontalVelocity.sqrMagnitude * 0.01f;
             carRigidbody.AddForce(dragForce);
+        }
+    }
+
+    void RotateWheels()
+    {
+        if (Wheels == null || Wheels.Length == 0 || initialWheelRotations == null) return;
+
+        // Целевой угол поворота колес на основе ввода
+        float targetAngle = steerInput * maxWheelTurnAngle;
+
+        // Плавно переходим к целевому углу
+        currentWheelAngle = Mathf.Lerp(currentWheelAngle, targetAngle, wheelRotationSpeed * Time.deltaTime);
+
+        // Применяем поворот ко всем колесам
+        for (int i = 0; i < Wheels.Length; i++)
+        {
+            if (Wheels[i] != null)
+            {
+                // Применяем поворот относительно начальной ротации
+                Quaternion steerRotation = Quaternion.Euler(0f, currentWheelAngle, 0f);
+                Wheels[i].localRotation = steerRotation * initialWheelRotations[i];
+            }
         }
     }
 }

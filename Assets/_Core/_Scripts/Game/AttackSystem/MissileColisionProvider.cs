@@ -4,6 +4,7 @@ public class MissileColisionProvider : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log($"{gameObject.name} collided with {other.gameObject.name}");
         var health = other.GetComponentInParent<HealthComponent>();
         if (health != null)
         {
