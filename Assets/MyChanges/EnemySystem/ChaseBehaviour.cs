@@ -29,7 +29,7 @@ public class ChaseBehaviour : MonoBehaviour, IEnemyBehaviour
     {
         if (rb == null) rb = GetComponent<Rigidbody>();
         if (_target == null) _target = GameObject.FindWithTag("Player").transform;
-        if (_dropPoolData == null) _dropPoolData = GameObject.FindWithTag("PlasmaContainer").GetComponent<PoolContainer>();
+        if (_dropPoolData == null) _dropPoolData = GameObject.FindWithTag("PlasmaContainer").GetComponent<PoolContainer>(); // такое нам не надо пж
 
         _canAtack = true;
         rb.freezeRotation = true;
@@ -73,6 +73,7 @@ public class ChaseBehaviour : MonoBehaviour, IEnemyBehaviour
 
     private void OnDeath()
     {
+        if (_dropPoolData == null) return;
         var drop = _dropPoolData.Pool.GetFreeElement();
         drop.transform.position = transform.position;
 
