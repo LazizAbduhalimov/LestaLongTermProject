@@ -5,10 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 1
+    path: Assets/_Core/Scenes/MissilesSceneRecovered.unity
+    guid: 9b20d241f2999aa43abc3bde6a6fbfee
   - enabled: 0
     path: Assets/_Core/Scenes/ModelsPreview.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
+  - enabled: 0
     path: Assets/MyChanges/TestScene.unity
     guid: 5410d8f5f946eb14c89ed457bebe10d2
   m_configObjects:

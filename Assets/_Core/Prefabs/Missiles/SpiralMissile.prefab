@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -4378996135340960925}
   - component: {fileID: 6771804330906369821}
   m_Layer: 10
-  m_Name: PatternTrailMissile 1
+  m_Name: SpiralMissile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

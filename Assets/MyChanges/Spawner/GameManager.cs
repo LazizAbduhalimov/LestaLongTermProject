@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private float _spawnInterval = 5f; // каждые 5 секунд
+    [SerializeField] private float _spawnInterval = 5f; // пїЅпїЅпїЅпїЅпїЅпїЅ 5 пїЅпїЅпїЅпїЅпїЅпїЅ
     [SerializeField] private List<PoolContainer> _pools;
     
 
@@ -14,7 +14,6 @@ public class GameManager : MonoBehaviour
     {
         EnemySpawner.Instance.SetStrategy(new InstantSpawn(_pools[0], 5));
         StartCoroutine(SpawnWaves());
-
     }
 
     private IEnumerator SpawnWaves()
