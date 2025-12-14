@@ -11,10 +11,11 @@ public abstract class AttackTypeBase : IAttack
     protected PoolService PoolService;
     protected EnemiesNearbyFinder EnemiesNearby;
 
-    public virtual void Init(PoolService poolService, EnemiesNearbyFinder enemiesNearby)
+    public virtual void Init(PoolService poolService, EnemiesNearbyFinder enemiesNearby, Transform owner)
     {
         PoolService = poolService;
         EnemiesNearby = enemiesNearby;
+        Owner = owner;
     }
 
     public virtual void Update()

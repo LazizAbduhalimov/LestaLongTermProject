@@ -9,17 +9,18 @@ public class Attacker: MonoBehaviour
     public float EnemyDetectionRange = 30f;
     [Space(15f)]
     [SerializeReference] public List<IAttack> AttackType;
-    
+    [SerializeField] private LayerMask _enemyLayerMask;
     private EnemiesNearbyFinder _enemiesNearby;
  
     public void Start()
     {
         var poolService = new PoolService("Pools");
         _enemiesNearby = new EnemiesNearbyFinder();
+        _enemiesNearby.LayerMask = _enemyLayerMask;
         
         foreach (var attack in AttackType)
         {
-            attack.Init(poolService, _enemiesNearby);
+            attack.Init(poolService, _enemiesNearby, transform);
         }        
         StartCoroutine(UpdateNearestEnemyCoroutine(0.5f));
     }

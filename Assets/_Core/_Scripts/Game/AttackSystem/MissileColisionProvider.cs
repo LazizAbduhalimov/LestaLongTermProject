@@ -4,10 +4,17 @@ public class MissileColisionProvider : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent<Enemy>(out var enemy))
+        var health = other.GetComponentInParent<HealthComponent>();
+        if (health != null)
         {
-            VFXPools.Instance.FireImpactPool.GetFromPool(transform.position);
-            gameObject.SetActive(false);
+            health.TakeDamage(2);
         }
+        Boom();
+    }
+
+    private void Boom()
+    {
+        VFXPools.Instance.FireImpactPool.GetFromPool(transform.position);
+        gameObject.SetActive(false);
     }
 }

@@ -6,7 +6,7 @@ public class EnemiesNearbyFinder
 {
     public List<Transform> Enemies = new();   
 
-    private LayerMask _layerMask = LayerMask.GetMask("Enemy");
+    public LayerMask LayerMask;
     private Transform _nearestEnemy;
 
 
@@ -22,7 +22,7 @@ public class EnemiesNearbyFinder
 
     public void UpdateEnemiesInRange(Vector3 position, float range)
     {
-        var overlaps = Physics.OverlapSphere(position, range, _layerMask);
+        var overlaps = Physics.OverlapSphere(position, range, LayerMask);
         Enemies = overlaps.Select(collider => collider.transform).ToList();
     }
 
