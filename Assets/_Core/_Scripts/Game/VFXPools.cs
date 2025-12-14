@@ -5,6 +5,7 @@ using UnityEngine;
 public class VFXPools : MonoBehaviour
 {
     public PoolContainer FireImpactPool;
+    public PoolContainer ExplosionImpactPool;
 
     public static VFXPools Instance => _instance;
     private static VFXPools _instance;
