@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
+<<<<<<< HEAD
   tags: []
+=======
+  tags:
+  - PlasmaContainer
+  - HitZone
+  - DronBulletContainer
+>>>>>>> main
   layers:
   - Default
   - TransparentFX
@@ -11,11 +18,11 @@ TagManager:
   - Blockers
   - Water
   - UI
+  - Enemy
   - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Player Missile
+  - Enemy Missile
   - 
   - 
   - 

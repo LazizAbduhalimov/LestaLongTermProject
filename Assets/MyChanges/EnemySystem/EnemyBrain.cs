@@ -21,4 +21,9 @@ public class EnemyBrain : MonoBehaviour
             b.TickFixedUpdate();
     }
 
+    public void Hit(GameObject agressor)
+    {
+        foreach (var b in behaviours)
+            b.OnHit(agressor);
+    }
 }

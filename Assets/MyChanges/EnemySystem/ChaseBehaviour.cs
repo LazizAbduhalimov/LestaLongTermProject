@@ -7,6 +7,7 @@ public interface IEnemyBehaviour
     public void Tick();
     public void TickFixedUpdate();
 
+    public void OnHit(GameObject agressor);
 }
 
 public class ChaseBehaviour : MonoBehaviour, IEnemyBehaviour
@@ -27,11 +28,9 @@ public class ChaseBehaviour : MonoBehaviour, IEnemyBehaviour
 
     public void Start()
     {
-
-
         if (rb == null) rb = GetComponent<Rigidbody>();
         if (_target == null) _target = GameObject.FindWithTag("Player").transform;
-        if (_dropPoolData == null) _dropPoolData = GameObject.FindWithTag("PlasmaContainer").GetComponent<PoolContainer>();
+        // if (_dropPoolData == null) _dropPoolData = GameObject.FindWithTag("PlasmaContainer").GetComponent<PoolContainer>(); // такое нам не надо пж
 
         _canAtack = true;
         rb.freezeRotation = true;
@@ -75,17 +74,14 @@ public class ChaseBehaviour : MonoBehaviour, IEnemyBehaviour
 
     private void OnDeath()
     {
+        if (_dropPoolData == null) return;
         var drop = _dropPoolData.Pool.GetFreeElement();
-        Instantiate(drop, transform.position, Quaternion.identity);
+        drop.transform.position = transform.position;
 
         gameObject.SetActive(false);
     }
-
-    private void OnTriggerEnter(Collider other)
+    public void OnHit(GameObject agressor)
     {
-        if (other.CompareTag("HitZone"))
-        {
-            OnDeath();
-        }
+        OnDeath();
     }
 }
