@@ -9,8 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3443277385827559339}
-  - component: {fileID: 575615074172550622}
-  - component: {fileID: 6890099595953354548}
   - component: {fileID: 2537421655506220792}
   - component: {fileID: 7928900798070284966}
   - component: {fileID: 6788704684366830841}
@@ -42,37 +40,6 @@ Transform:
   - {fileID: 7023504670736868563}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &575615074172550622
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5726815793967703448}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19e27828d2bd92d44bd7e5c68e38dc6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyBrain
---- !u!114 &6890099595953354548
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5726815793967703448}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1f7c9c67e2fe9841bbbc3d343faf626, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ChaseBehaviour
-  _speed: 10
-  _rotateSpeed: 0.1
-  _target: {fileID: 0}
-  _damageZone: 5
-  _zoneCalmdown: 3
-  _canAtack: 1
-  _dropPoolData: {fileID: 0}
 --- !u!54 &2537421655506220792
 Rigidbody:
   m_ObjectHideFlags: 0
