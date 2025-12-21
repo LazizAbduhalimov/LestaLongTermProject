@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PetTestDrop : MonoBehaviour
 {
-    [SerializeField] private List<PoolContainer> _pool = new List<PoolContainer>();
+    [SerializeField] private GameObject _petForSpawn;
+    [SerializeField] private int _petPoolCount;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -19,15 +20,15 @@ public class PetTestDrop : MonoBehaviour
             return;
         }
 
-        var randomContainer = _pool[Random.Range(0, _pool.Count)];
-        var obj = randomContainer.Pool.GetFreeElement(true);
+        var poolService = new PoolService("DropSystem");
+        var pool = poolService.GetOrRegisterPool<FollowingPet>(_petForSpawn.GetComponent<FollowingPet>(), _petPoolCount,null ,true);
 
-        obj.SetActive(true);
+        var pet = pool.GetFreeElement(true).GetComponent<IPet>();
+        petManager.AddPet(pet);
 
-        if (obj.TryGetComponent<IPet>(out var pet))
-        {
-            petManager.AddPet(pet);
-        }
+
+
+
 
         gameObject.SetActive(false);
     }
