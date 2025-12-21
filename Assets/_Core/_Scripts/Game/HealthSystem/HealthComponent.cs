@@ -6,6 +6,7 @@ public class HealthComponent : MonoBehaviour
     public int MaxHealth = 100;
     public int CurrentHealth;
     public Action<int, int, int> OnHealthChanged;
+    public Action OnDeath;
 
     private void Awake()
     {
@@ -25,6 +26,7 @@ public class HealthComponent : MonoBehaviour
 
     private void Die()
     {
+        OnDeath?.Invoke();
         Debug.Log($"{gameObject.name} has died.");
         gameObject.SetActive(false);
     }

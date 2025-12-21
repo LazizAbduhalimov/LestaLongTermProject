@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8343046130487869220
+--- !u!1 &921998041689471523
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,46 +8,46 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8683965840067749278}
-  - component: {fileID: 5705074986793986619}
-  - component: {fileID: 7550434517958434545}
+  - component: {fileID: 540512193396990105}
+  - component: {fileID: 3472155932513726268}
+  - component: {fileID: 1714574194432154614}
   m_Layer: 0
-  m_Name: scifi-skull-alien
+  m_Name: scifi-truck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8683965840067749278
+--- !u!4 &540512193396990105
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8343046130487869220}
+  m_GameObject: {fileID: 921998041689471523}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.000045358, y: -0.74739, z: -0.024552}
-  m_LocalScale: {x: 8.299173, y: 8.299173, z: 8.299173}
+  m_LocalPosition: {x: 0, y: -0.18, z: 0.11838}
+  m_LocalScale: {x: 0.947124, y: 0.54038, z: 0.54038}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2318629436527165052}
+  m_Father: {fileID: 3261769753816550126}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &5705074986793986619
+--- !u!33 &3472155932513726268
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8343046130487869220}
-  m_Mesh: {fileID: -3495687559069241313, guid: a54f883c8aae6dc438ceaabee2ad99c7, type: 3}
---- !u!23 &7550434517958434545
+  m_GameObject: {fileID: 921998041689471523}
+  m_Mesh: {fileID: -6184343964307436360, guid: f92447d793a1945468a20a51b05ec1c6, type: 3}
+--- !u!23 &1714574194432154614
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8343046130487869220}
+  m_GameObject: {fileID: 921998041689471523}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -66,9 +66,13 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c78b6e378cced6e49b9586bae01cbc5b, type: 2}
-  - {fileID: 2100000, guid: a7862d5615928c34e868320de65c2777, type: 2}
-  - {fileID: 2100000, guid: c48ed0c67054fc24da0ac1cced5a308c, type: 2}
+  - {fileID: 2100000, guid: c413883b1f5da43f595f8475353613de, type: 2}
+  - {fileID: 2100000, guid: 40a353f6117398145a3e785d9854de93, type: 2}
+  - {fileID: 2100000, guid: 700ae469e5be9ac4095d29b97116027a, type: 2}
+  - {fileID: 2100000, guid: ecce1a1895e37524282423faddfd60c9, type: 2}
+  - {fileID: 2100000, guid: 64a4684ba67ced04c811f6174e678a22, type: 2}
+  - {fileID: 2100000, guid: ffce2a7e1519d465684f3f97da456fa9, type: 2}
+  - {fileID: 2100000, guid: fd6fc35b57276914f8927f653783b6a4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -91,7 +95,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &8830422226508003641
+--- !u!1 &7677185050043839319
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -99,38 +103,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2318629436527165052}
-  - component: {fileID: 4388794525807191819}
+  - component: {fileID: 3261769753816550126}
+  - component: {fileID: 2009530307707248402}
+  - component: {fileID: 7493339297488042864}
   m_Layer: 0
-  m_Name: FollowPet
+  m_Name: AnotherShootPet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2318629436527165052
+--- !u!4 &3261769753816550126
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8830422226508003641}
+  m_GameObject: {fileID: 7677185050043839319}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.4, z: 0}
+  m_LocalPosition: {x: -15.59637, y: 1.65, z: -63.56364}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8683965840067749278}
+  - {fileID: 540512193396990105}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4388794525807191819
+--- !u!114 &2009530307707248402
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8830422226508003641}
+  m_GameObject: {fileID: 7677185050043839319}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ba1443d04a760e344a82c5f05919f41b, type: 3}
@@ -138,3 +143,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FollowingPet
   _movementSpeed: 10
   _rotationSpeed: 360
+--- !u!114 &7493339297488042864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7677185050043839319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2886ca09dd453424c923997bcb75cb3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Attacker
+  EnemyDetectionRange: 30
+  _enemyLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  AttackType:
+  - rid: 6030889908105379913
+  references:
+    version: 2
+    RefIds:
+    - rid: 6030889908105379913
+      type: {class: SpiralHomingAttack, ns: , asm: Assembly-CSharp}
+      data:
+        IsActive: 1
+        Owner: {fileID: 0}
+        AttackRate: 0.2
+        MissilePrefab: {fileID: 6771804330906369821, guid: 9928458d1457a3142b75abe0cfa387b8, type: 3}
+        MissileSpeed: 30
+        TurnRatePerSecond: 90
+        SpiralRadius: 2
+        SpiralSpeed: 3
+        UpwardForce: 5
+        UpwardDuration: 1
