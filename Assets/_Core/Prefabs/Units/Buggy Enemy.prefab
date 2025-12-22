@@ -157,42 +157,8 @@ MonoBehaviour:
   _enemyLayerMask:
     serializedVersion: 2
     m_Bits: 256
-  AttackType:
-  - rid: 5446675111761412165
-  - rid: 5446675111761412166
-  - rid: 317144563515129930
-  references:
-    version: 2
-    RefIds:
-    - rid: 317144563515129930
-      type: {class: SpiralHomingAttack, ns: , asm: Assembly-CSharp}
-      data:
-        IsActive: 1
-        Owner: {fileID: 0}
-        AttackRate: 1
-        MissilePrefab: {fileID: 6771804330906369821, guid: 9928458d1457a3142b75abe0cfa387b8, type: 3}
-        MissileSpeed: 15
-        TurnRatePerSecond: 270
-        SpiralRadius: 2
-        SpiralSpeed: 3
-        UpwardForce: 5
-        UpwardDuration: 0.5
-    - rid: 5446675111761412165
-      type: {class: AutoAimAttack, ns: , asm: Assembly-CSharp}
-      data:
-        IsActive: 0
-        Owner: {fileID: 0}
-        AttackRate: 0.3
-        MissilePrefab: {fileID: 5154465078395006275, guid: 5e7a5ddc1f170094f98829c05850873e, type: 3}
-        MissileSpeed: 20
-    - rid: 5446675111761412166
-      type: {class: PatternedMissileAttack, ns: , asm: Assembly-CSharp}
-      data:
-        IsActive: 1
-        Owner: {fileID: 0}
-        AttackRate: 0.5
-        MissilePrefab: {fileID: 6744057543760194032, guid: e35e8db2860589349ab902022fb402f0, type: 3}
-        MissileSpeed: 15
+  AttackSOList:
+  - {fileID: 11400000, guid: 82a01f405c7610d4584794c31f89b144, type: 2}
 --- !u!114 &7408512862687942489
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2713596348618212337}
   - component: {fileID: 5859165641928401245}
   - component: {fileID: 5734473855396729758}
+  - component: {fileID: 3788241074539072713}
   m_Layer: 6
   m_Name: Ranger Enemy
   m_TagString: Untagged
@@ -33,8 +34,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -18.59, y: 0, z: -1.34737}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3163707192941850035}
   - {fileID: 9147136291127986216}
@@ -124,28 +125,8 @@ MonoBehaviour:
   _enemyLayerMask:
     serializedVersion: 2
     m_Bits: 256
-  AttackType:
-  - rid: 5446675111761412165
-  - rid: 5446675111761412166
-  references:
-    version: 2
-    RefIds:
-    - rid: 5446675111761412165
-      type: {class: AutoAimAttack, ns: , asm: Assembly-CSharp}
-      data:
-        IsActive: 1
-        Owner: {fileID: 0}
-        AttackRate: 0.3
-        MissilePrefab: {fileID: 5154465078395006275, guid: 5e7a5ddc1f170094f98829c05850873e, type: 3}
-        MissileSpeed: 20
-    - rid: 5446675111761412166
-      type: {class: PatternedMissileAttack, ns: , asm: Assembly-CSharp}
-      data:
-        IsActive: 1
-        Owner: {fileID: 0}
-        AttackRate: 0.2
-        MissilePrefab: {fileID: 6744057543760194032, guid: e35e8db2860589349ab902022fb402f0, type: 3}
-        MissileSpeed: 20
+  AttackSOList:
+  - {fileID: 11400000, guid: 90ebaf7812303a74999f5430f6f3df39, type: 2}
 --- !u!114 &2713596348618212337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,6 +168,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ExplosionAfterDeath
   HealthComponent: {fileID: 2713596348618212337}
+--- !u!114 &3788241074539072713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1176175178849238510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: babeff35bfd4a3541a0873482cb409ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DropTable
+  drops:
+  - prefab: {fileID: 8184108278349770178, guid: 3be540bedb0b220468c1ce540e03927b, type: 3}
+    dropChance: 100
+    minAmount: 1
+    maxAmount: 2
+  - prefab: {fileID: 8184108278349770178, guid: db7d8c602b1754245af60c9f02635004, type: 3}
+    dropChance: 100
+    minAmount: 10
+    maxAmount: 100
 --- !u!1001 &2347247033787014722
 PrefabInstance:
   m_ObjectHideFlags: 0

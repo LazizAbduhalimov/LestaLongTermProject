@@ -7,6 +7,12 @@ public class EnemiesNearbyFinder
     public List<Transform> Enemies = new();   
 
     public LayerMask LayerMask;
+
+    public EnemiesNearbyFinder(LayerMask layerMask)
+    {
+        LayerMask = layerMask;
+    }
+
     private Transform _nearestEnemy;
 
 

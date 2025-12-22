@@ -1,10 +1,11 @@
+using System;
 using PoolSystem.Alternative;
 using UnityEngine;
 
+[Serializable]
 public abstract class AttackTypeBase : IAttack
 {
-    public bool IsActive = true;
-    public Transform Owner;
+    [HideInInspector] public Transform Owner;
     public float AttackRate;
     
     protected Transform Target;
@@ -21,7 +22,6 @@ public abstract class AttackTypeBase : IAttack
 
     public virtual void Update()
     {
-        if (!IsActive) return;
         PassedTime += Time.deltaTime;
         if (PassedTime >= AttackRate)
         {

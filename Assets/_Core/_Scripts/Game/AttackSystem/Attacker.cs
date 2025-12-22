@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using PoolSystem.Alternative;
@@ -9,16 +8,17 @@ public class Attacker: MonoBehaviour
     public float EnemyDetectionRange = 30f;
     [Space(15f)]
     [SerializeField] private LayerMask _enemyLayerMask;
-    [SerializeReference] public List<IAttack> AttackType;
+    [SerializeReference] public List<AttackSO> AttackSOList;
+    private List<IAttack> _attacks;
+
     private EnemiesNearbyFinder _enemiesNearby;
  
     public void Start()
     {
         var poolService = new PoolService("Pools");
-        _enemiesNearby = new EnemiesNearbyFinder();
-        _enemiesNearby.LayerMask = _enemyLayerMask;
-        
-        foreach (var attack in AttackType)
+        _enemiesNearby = new EnemiesNearbyFinder(_enemyLayerMask);
+        _attacks = AttackSOList.ConvertAll(attackSO => attackSO.AttackType);       
+        foreach (var attack in _attacks)
         {
             attack.Init(poolService, _enemiesNearby, transform);
         }        
@@ -37,7 +37,7 @@ public class Attacker: MonoBehaviour
 
     public void Update()
     {
-        foreach (var attack in AttackType)
+        foreach (var attack in _attacks)
         {
             attack.Update();
         }
