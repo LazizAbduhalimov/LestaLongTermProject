@@ -21,6 +21,6 @@ MonoBehaviour:
       type: {class: PatternedMissileAttack, ns: , asm: Assembly-CSharp}
       data:
         Owner: {fileID: 0}
-        AttackRate: 0.1
+        AttackRate: 0.2
         MissilePrefab: {fileID: 6744057543760194032, guid: e35e8db2860589349ab902022fb402f0, type: 3}
-        MissileSpeed: 15
+        MissileSpeed: 20

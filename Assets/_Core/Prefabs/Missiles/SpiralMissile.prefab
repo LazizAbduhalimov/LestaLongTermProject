@@ -245,12 +245,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpiralHomingMissile
   Speed: 15
   Target: {fileID: 0}
-  TurnRatePerSecond: 270
+  TurnRatePerSecond: 90
   SpiralRadius: 1
   SpiralSpeed: 1
   UpwardForce: 10
   UpwardDuration: 0.5
-  MaxSpeed: 30
+  MaxSpeed: 22.5
   AccelerationDuration: 2
 --- !u!1 &6309859223550684579
 GameObject:

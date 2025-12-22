@@ -17,12 +17,24 @@ public class Attacker: MonoBehaviour
     {
         var poolService = new PoolService("Pools");
         _enemiesNearby = new EnemiesNearbyFinder(_enemyLayerMask);
-        _attacks = AttackSOList.ConvertAll(attackSO => attackSO.AttackType);       
+        
+        // Создаем копии AttackType для каждого инстанса Attacker
+        _attacks = AttackSOList.ConvertAll(attackSO => CloneAttackType(attackSO.AttackType));
+        
         foreach (var attack in _attacks)
         {
             attack.Init(poolService, _enemiesNearby, transform);
         }        
         StartCoroutine(UpdateNearestEnemyCoroutine(0.5f));
+    }
+    
+    private IAttack CloneAttackType(IAttack original)
+    {
+        if (original == null) return null;
+        
+        // Используем JsonUtility для глубокого клонирования
+        string json = JsonUtility.ToJson(original);
+        return (IAttack)JsonUtility.FromJson(json, original.GetType());
     }
 
     public IEnumerator UpdateNearestEnemyCoroutine(float updateInterval)
