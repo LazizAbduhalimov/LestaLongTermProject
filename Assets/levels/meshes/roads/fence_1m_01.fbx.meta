@@ -1,9 +1,19 @@
 fileFormatVersion: 2
-guid: 55a27fe9fe9418448a9e724f474f11ab
+guid: d709ba485afa95447bd8eac17af9d8c2
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: floor_grid_01
+    second: {fileID: 2100000, guid: 652b5498b3c52074eb6794997df441d4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: metal_beams_01
+    second: {fileID: 2100000, guid: 16baac24b347fd9439840836bc3beb57, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
